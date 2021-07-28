@@ -1,0 +1,15 @@
+name: new-issue-automation
+
+on:
+  issues:
+    types: [opened]
+    
+jobs:
+  move-new-issues-to-backlog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.8.0
+        with:
+          project: "Board"
+          column: "Backlog"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
